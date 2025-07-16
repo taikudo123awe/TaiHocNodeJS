@@ -4,6 +4,7 @@ const path = require('path');
 const app = express()
 const port = 3000
 
+app.use(express.static(path.join(__dirname,'public')));
 app.engine('hbs', engine(
   {extname: '.hbs'
    // 👉 đây là layout mặc định
@@ -11,6 +12,7 @@ app.engine('hbs', engine(
 )); // ✅ Gọi hàm engine()
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'resource\\views'));
+
 
 
 app.get('/', (req, res) => {
